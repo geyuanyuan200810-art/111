@@ -26,6 +26,16 @@ import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
+import matplotlib.font_manager as fm
+
+for _fp in ['/usr/share/fonts/truetype/wqy/wqy-zenhei.ttc',
+            '/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc',
+            'C:/Windows/Fonts/msyh.ttc', 'C:/Windows/Fonts/simsun.ttc']:
+    if os.path.exists(_fp):
+        fm.fontManager.addfont(_fp)
+        plt.rcParams['font.family'] = fm.FontProperties(fname=_fp).get_name()
+        break
+plt.rcParams['axes.unicode_minus'] = False
 from dataclasses import dataclass, field
 from typing import Dict, Tuple, List
 from collections import defaultdict
@@ -380,7 +390,7 @@ def transform_points(pts_xyz: np.ndarray, T: np.ndarray) -> np.ndarray:
 
 SEQ_PATH = "/home/yuan/kitti_data/dataset/sequences/00"
 TRAJ_PATH = "/home/yuan/slam_results/kitti_semantic/traj.txt"
-OUT_DIR = "/mnt/e/qqq/results"
+OUT_DIR = "/home/yuan/slam_results"
 OUT_PNG = os.path.join(OUT_DIR, "semantic_octomap.png")
 
 def run_kitti_experiment():
@@ -675,7 +685,7 @@ def run_demo():
 
     plt.tight_layout()
 
-    demo_path = "/mnt/e/qqq/results/semantic_octomap_demo.png"
+    demo_path = "/home/user/111/slam_results/semantic_octomap_demo.png"
     plt.savefig(demo_path, dpi=150, bbox_inches='tight')
     print(f"[INFO] 演示图已保存到: {demo_path}")
     plt.close()
@@ -761,5 +771,5 @@ if __name__ == "__main__":
 
         bmap, smap = make_synthetic_maps()
         print_summary(bmap, smap)
-        synth_out = "/mnt/e/qqq/results/semantic_octomap_synth.png"
+        synth_out = "/home/user/111/slam_results/semantic_octomap_synth.png"
         visualize_maps(bmap, smap, synth_out)
