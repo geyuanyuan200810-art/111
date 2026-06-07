@@ -36,7 +36,7 @@ OUT_FIXED = "/home/yuan/kitti_data/dataset/sequences/00_fixed_weight"
 OUT_ADAPTIVE = "/home/yuan/kitti_data/dataset/sequences/00_adaptive_weight"
 
 # 最终分析图保存路径
-RESULT_FIG = "/home/yuan/slam_results/adaptive_weight_analysis.png"
+RESULT_FIG = "/mnt/e/qqq/results/adaptive_weight_analysis.png"
 
 # 动态类别（SemanticKITTI 定义的移动物体类别）
 # 10=car(moving), 11=motorcycle(moving), 13=bus(moving),
