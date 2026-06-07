@@ -46,7 +46,7 @@ SEQUENCES = ["00", "05", "07", "08"]
 DYNAMIC_CLASSES = {10, 11, 13, 15, 16, 18, 20}
 
 BASE_DIR = "/home/yuan/kitti_data/dataset/sequences"
-RESULTS_DIR = "/mnt/e/qqq/results"
+RESULTS_DIR = "/home/yuan/slam_results"
 
 # ─────────────────────── 功能1：多序列批量预处理 ───────────────────────
 
@@ -510,7 +510,7 @@ def plot_literature_comparison(results: list,
     legend_handles.append(pending)
     # DS-SLAM 注释
     ax.annotate(
-        "⚠ DS-SLAM 使用相机传感器，\n  与激光雷达方案不可直接对比",
+        "[注] DS-SLAM 使用相机传感器，\n  与激光雷达方案不可直接对比",
         xy=(0.98, 0.97), xycoords="axes fraction",
         ha="right", va="top", fontsize=8,
         color="#c44e52",
