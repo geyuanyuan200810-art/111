@@ -488,7 +488,7 @@ def print_results_table(results):
 #  绘图：柱状图 + 典型轨迹
 # ============================================================
 
-def plot_main_results(results, save_path='/home/yuan/planning_sim/multi_uav_results.png'):
+def plot_main_results(results, save_path='/mnt/e/qqq/results/multi_uav_results.png'):
     """
     保存图表：左侧柱状图（成功率 + 最小间距），右侧典型轨迹对比
     """
@@ -629,7 +629,7 @@ def plot_main_results(results, save_path='/home/yuan/planning_sim/multi_uav_resu
 #  绘图：风险椭球示意图
 # ============================================================
 
-def plot_risk_ellipsoid_demo(save_path='/home/yuan/planning_sim/risk_ellipsoid_demo.png'):
+def plot_risk_ellipsoid_demo(save_path='/mnt/e/qqq/results/risk_ellipsoid_demo.png'):
     """
     风险椭球示意图：行人（1.5m/s）和他机（5m/s/8m/s）的风险场等高线对比
     x轴y轴为空间坐标，colormap显示风险值，箭头标注速度方向。
@@ -762,7 +762,7 @@ if __name__ == '__main__':
     print("\n生成图表...")
     import os
     os.makedirs('/home/yuan/planning_sim', exist_ok=True)
-    plot_main_results(results, save_path='/home/yuan/planning_sim/multi_uav_results.png')
-    plot_risk_ellipsoid_demo(save_path='/home/yuan/planning_sim/risk_ellipsoid_demo.png')
+    plot_main_results(results, save_path='/mnt/e/qqq/results/multi_uav_results.png')
+    plot_risk_ellipsoid_demo(save_path='/mnt/e/qqq/results/risk_ellipsoid_demo.png')
 
     print("\n所有任务完成！")
