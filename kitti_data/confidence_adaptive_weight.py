@@ -23,6 +23,16 @@ import matplotlib
 matplotlib.use('Agg')  # 无显示器环境使用非交互后端
 import matplotlib.pyplot as plt
 import matplotlib.gridspec as gridspec
+import matplotlib.font_manager as fm
+
+for _fp in ['/usr/share/fonts/truetype/wqy/wqy-zenhei.ttc',
+            '/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc',
+            'C:/Windows/Fonts/msyh.ttc', 'C:/Windows/Fonts/simsun.ttc']:
+    if os.path.exists(_fp):
+        fm.fontManager.addfont(_fp)
+        plt.rcParams['font.family'] = fm.FontProperties(fname=_fp).get_name()
+        break
+plt.rcParams['axes.unicode_minus'] = False
 
 # ─────────────────────────── 常量定义 ───────────────────────────
 
@@ -36,7 +46,7 @@ OUT_FIXED = "/home/yuan/kitti_data/dataset/sequences/00_fixed_weight"
 OUT_ADAPTIVE = "/home/yuan/kitti_data/dataset/sequences/00_adaptive_weight"
 
 # 最终分析图保存路径
-RESULT_FIG = "/mnt/e/qqq/results/adaptive_weight_analysis.png"
+RESULT_FIG = "/home/yuan/slam_results/adaptive_weight_analysis.png"
 
 # 动态类别（SemanticKITTI 定义的移动物体类别）
 # 10=car(moving), 11=motorcycle(moving), 13=bus(moving),
