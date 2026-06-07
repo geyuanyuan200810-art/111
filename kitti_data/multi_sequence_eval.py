@@ -25,7 +25,17 @@ import sys
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
+import matplotlib.font_manager as fm
 import numpy as np
+
+for _fp in ['/usr/share/fonts/truetype/wqy/wqy-zenhei.ttc',
+            '/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc',
+            'C:/Windows/Fonts/msyh.ttc', 'C:/Windows/Fonts/simsun.ttc']:
+    if os.path.exists(_fp):
+        fm.fontManager.addfont(_fp)
+        plt.rcParams['font.family'] = fm.FontProperties(fname=_fp).get_name()
+        break
+plt.rcParams['axes.unicode_minus'] = False
 
 # ─────────────────────── 全局常量 ───────────────────────
 SEQUENCES = ["00", "05", "07", "08"]
@@ -36,7 +46,7 @@ SEQUENCES = ["00", "05", "07", "08"]
 DYNAMIC_CLASSES = {10, 11, 13, 15, 16, 18, 20}
 
 BASE_DIR = "/home/yuan/kitti_data/dataset/sequences"
-RESULTS_DIR = "/mnt/e/qqq/results"
+RESULTS_DIR = "/home/yuan/slam_results"
 
 # ─────────────────────── 功能1：多序列批量预处理 ───────────────────────
 
@@ -477,7 +487,7 @@ def plot_literature_comparison(results: list,
             color=color, label=label,
             linewidth=1.5 if es == "dashed" else 0.8,
         )
-        ax.add_patch(patch)  # 仅用于图例，下方统一处理
+        # patch 仅用于图例，由下方 legend_handles 统一处理，不直接add_patch
 
     ax.set_xticks(x)
     ax.set_xticklabels([f"序列 {s}" for s in seqs], fontsize=11)
