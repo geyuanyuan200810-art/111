@@ -36,7 +36,7 @@ SEQUENCES = ["00", "05", "07", "08"]
 DYNAMIC_CLASSES = {10, 11, 13, 15, 16, 18, 20}
 
 BASE_DIR = "/home/yuan/kitti_data/dataset/sequences"
-RESULTS_DIR = "/home/yuan/slam_results"
+RESULTS_DIR = "/mnt/e/qqq/results"
 
 # ─────────────────────── 功能1：多序列批量预处理 ───────────────────────
 
