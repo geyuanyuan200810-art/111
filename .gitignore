@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+*.pyo
+*.png
+*.npy
+*.db3
+*.bag
