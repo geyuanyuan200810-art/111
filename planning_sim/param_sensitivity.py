@@ -316,7 +316,7 @@ def plot_sensitivity(results, save_path):
 if __name__ == '__main__':
     import sys
 
-    SAVE_PATH = '/home/yuan/planning_sim/param_sensitivity.png'
+    SAVE_PATH = '/mnt/e/qqq/results/param_sensitivity.png'
 
     beta_values = np.arange(0.30, 0.85, 0.05).round(2)
     print("=" * 60)
